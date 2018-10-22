@@ -11,10 +11,18 @@
  include("testclass.php");
  testclass::header();
 
+ $login = $_POST["login"];
+
  $passwordinput = htmlspecialchars($_POST["pw"]);
  $usernameinput = htmlspecialchars($_POST["name"]);
 
- $class = new testclass();
+ if($login !== null){
+     //Login button pressed
+     $login = true;
+ } else {
+     //Create new button pressed
+     $login = false;
+ }
 
  $servername = "aamx4dtkuzakop.cf8znimwntrp.eu-central-1.rds.amazonaws.com:3306";
  $username = "bob";
@@ -25,7 +33,11 @@
 
  // Check connection
  if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
+     echo("Connection 1 failed: " . $conn->connect_error);
+     $conn = new mysqli("localhost", $username, $password);
+     if ($conn->connect_error) {
+         die("Connection 2 failed: " . $conn->connect_error);
+     }
  }
  echo "Connected successfully";
  echo "<br>";
@@ -58,15 +70,45 @@ password VARCHAR(30) NOT NULL)";
      echo "Create Table: Get rekt <br>";
  }
 
- $insertuserquery = "INSERT INTO Users (username, password) VALUES (?,?)";
- $readyquery = $conn->prepare($insertuserquery);
- $readyquery->bind_param("ss", $usernameinput, $passwordinput);
+ if(!$login){
+     $insertuserquery = "INSERT INTO Users (username, password) VALUES (?,?)";
+     $readyquery = $conn->prepare($insertuserquery);
+     $readyquery->bind_param("ss", $usernameinput, $passwordinput);
 
- if($readyquery->execute()){
-     echo "Create Row: TOO EZ <br>";
+     if($readyquery->execute()){
+         echo "Create Row: TOO EZ <br>";
+     } else {
+         echo "Create Row: Get rekt <br>   ". $conn->error;
+     }
  } else {
-     echo "Create Row: Get rekt <br>   ". $conn->error;
+     $checkauth = "SELECT password FROM Users WHERE username = $usernameinput";
+
+     $result = $conn->query($checkauth);
+     if($result->num_rows > 0){
+         echo "Search user : TOO EZ <br>";
+     } else {
+         echo "Search user : Get rekt <br>   ". $conn->error;
+     }
+
+     $auth = false;
+
+     if($result->num_rows > 0){
+        while($user = $result->fetch_assoc()){
+            if($user["password"] === $passwordinput){
+                $auth = true;
+                break;
+            }
+        }
+     }
+     if($auth){
+         echo "Successfully authenticated";
+     } else {
+         echo "Get rekt m8: Sike, that's the wrong password";
+     }
+
+
  }
+
 
 
  testclass::footer();

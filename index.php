@@ -10,7 +10,16 @@
  <form action="testschritt2.php" method="post">
      Name:<input type="text" name="name">
      PW<input type="password" name="pw">
-     <input type="submit">
+     Email:<input type="email" name = "email">
+     <input type="submit" value = "Create account" name="new">
+ </form>
+
+ <hr>
+
+ <form action="testschritt2.php" method="post">
+     Name:<input type="text" name="name">
+     PW<input type="password" name="pw">
+     <input type="submit" value = "Login" name="login">
  </form>
 
  <?php
