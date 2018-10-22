@@ -16,7 +16,7 @@
 
  $class = new testclass();
 
- $servername = "localhost";
+ $servername = "aamx4dtkuzakop.cf8znimwntrp.eu-central-1.rds.amazonaws.com:3306";
  $username = "bob";
  $password = "zweiundzwanzig";
 
