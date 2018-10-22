@@ -1,7 +1,7 @@
 <html>
  <head>
   <title>PHP Test</title>
-     <link rel="stylesheet" href="PolySleep.css">
+     <link rel="stylesheet" href="phpolysleep.css">
      <script src="Home.js"></script>
  </head>
  <body>
@@ -18,7 +18,7 @@
 
  $servername = "localhost";
  $username = "bob";
- $password = "sUPERqU4Lomat";
+ $password = "zweiundzwanzig";
 
  // Create connection
  $conn = new mysqli($servername, $username, $password);

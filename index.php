@@ -2,6 +2,9 @@
 <html>
  <head>
   <title>PHP Test</title>
+     <link rel="icon"
+           type="image/png"
+           href="/phpolysleep/resources/images/favicon.png">
  </head>
  <body>
  <form action="testschritt2.php" method="post">

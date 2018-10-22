@@ -1,0 +1,520 @@
+/* Navigation bar on top */
+
+body > :first-child{
+    margin:0;
+}
+
+.navbartop{
+    position: sticky;
+    position: -webkit-sticky;
+    top:0;
+    margin: 0;
+    padding-left:  0;
+    list-style-type: none;
+    background-color: lightgrey;
+    line-height: 15px;
+    box-shadow: 0 10px 40px -10px grey;
+    z-index: 100;
+}
+
+.navbartop > li > a{
+    padding:35px;
+    text-decoration:none;
+    font-size: 1.2em;
+    display: block;
+}
+
+.navbartop > li > a.more {
+    float: right;
+    position: absolute;
+    right:0;
+}
+
+.navbartop > li > a:not(.active):not(.activeclickable){
+    color: black;
+}
+
+.navbartop > li > a:hover:not(.active):not(.more){
+    background-color: blue;
+    color: white;
+    z-index:102;
+}
+
+.navbartop > li.navhamburgermenu{
+    position: absolute;
+    right:0;
+    top:0;
+    font-size: 1.2em;
+    background-color: lightgrey;
+    color: white;
+}
+
+.navbartop > li.navhamburgermenu > a{
+    background-color: lightgrey;
+}
+
+.navbartop > div:hover{
+    cursor: pointer;
+}
+
+/* RWD navbartop */
+@media only screen and (max-width: 700px) {
+    .navbartop > li > a:not(.active):not(.activeclickable):not(.more) {
+        display: none;
+    }
+    .navbartop > li {
+       /* float:top;*/
+        text-align: left;
+    }
+    .navbartop > li.navhamburgermenu{
+        display: inline-block;
+    }
+
+}
+@media only screen and (min-width: 700px) {
+    .navbartop > li > a {
+        display: block;
+        float:left;
+        text-align: center;
+    }
+    .navbartop > li.navhamburgermenu{
+        display: none;
+    }
+}
+
+
+
+/* Active Links */
+a.active{
+    color:white;
+    background-color: darkblue;
+    pointer-events: none;
+    cursor: default;
+    z-index:50;
+}
+a.activeclickable{
+    color:white;
+    background-color: darkblue;
+}
+
+/* Global */
+
+/* For footer placement */
+html{
+    height: 100%;
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after{
+    box-sizing: inherit;
+}
+
+body{
+    font-family: Arial;
+    color: black;
+    margin: 0;
+    position: relative;
+    min-height:100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.7rem;
+
+}
+
+body *{
+
+}
+
+footer{
+    padding: 2%;
+    clear: both;
+    text-align: center;
+    background-color: grey;
+    color: white;
+    width: 100%;
+}
+
+footer > p > a{
+    color: white;
+}
+
+h1{
+    padding: 30px;
+    width: 100%;
+    background-color: grey;
+    color: white;
+}
+
+
+main{
+    overflow: hidden;
+    flex: 1;
+}
+
+
+
+/* Column division */
+
+*{
+    box-sizing: border-box;
+}
+[class*="col-"]{
+    float:left;
+    padding: 2%;
+}
+
+/* Responsiveness for phones */
+@media only screen and (max-width: 600px) {
+    [class*="col-"]{
+        width: 100%;
+    }
+    ul.patternmenu > li:hover > ul, ul.patternmenu > li > ul:hover {
+        right:0;
+    }
+    ul.patternmenu > li > a > span.desktoparr {
+        display:none;
+    }
+    ul.patternmenu > li > a.phoneplus {
+        display: inline-block;
+        position: absolute;
+        right:0;
+    }
+    ul.patternmenu > li > a{
+        display: inline-block;
+    }
+    table.statstable{
+        width: 100%;
+    }
+    div.patterncontent > *:not(table){
+        margin-left:10%;
+        margin-right:10%;
+    }
+    ul.patternmenu > li > a.collbutton {
+        text-decoration: underline;
+        background-color: midnightblue;
+        color: white;
+        float: right;
+        z-index: 4;
+        display: inline-block;
+    }
+    div.basiccontent{
+        margin-left:10%;
+        margin-right:10%;
+    }
+    ul.patternmenu > li:not(.title){
+        display: none;
+    }
+    ul.patternmenu > li > ul {
+        background-color: white;
+    }
+
+}
+
+
+/* Responsiveness for larger screens */
+@media only screen and (min-width: 600px){
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+
+    ul.patternmenu > li > ul {
+        width: 20%;
+        line-height: 35px;
+        margin-top: -55px;
+        position: absolute;
+        background-color: lightgrey;
+    }
+    ul.patternmenu > li:hover > ul, ul.patternmenu > li > ul:hover {
+        left: 25%;
+        float: right;
+    }
+    ul.patternmenu > li > a{
+        display: block;
+    }
+    ul.patternmenu > li > a > span.desktoparr {
+
+    }
+    ul.patternmenu > li > a.phoneplus {
+        display:none;
+    }
+    table.statstable{
+        width: 70%;
+    }
+    div.patterncontent > *{
+        margin-left:15%;
+        margin-right:15%;
+    }
+    ul.patternmenu > li > a.collbutton {
+        display: none;
+    }
+
+    div.basiccontent{
+        margin-left:20%;
+        margin-right:20%;
+    }
+
+    ul.patternmenu > li > a:hover:not(.active):not(.menutitle) {
+        background-color: blue;
+        color: white;
+    }
+
+    ul.patternmenu > li:not(.title){
+        display: block;
+    }
+
+    h2{
+        padding-top: 20px;
+    }
+    ul.patternmenu > li:hover > ul, ul.patternmenu > li > ul:hover {
+        display: block;
+    }
+    ul.patternmenu > li > ul > li:hover > a:not(.active) {
+        color: white;
+        background-color: blue;
+    }
+
+}
+
+
+/* Menu for Sleep Patterns */
+ul.patternmenu {
+    padding: 0;
+    list-style-type: none;
+    clear: both;
+    background-color: lightgray;
+    overflow: hidden;
+    line-height: 35px;
+    float:left;
+    box-shadow: 5px 5px 20px -5px grey;
+    font-size: 1.1em;
+}
+
+ul.patternmenu > li > a > span.desktoparr {
+    float: right;
+}
+ul.patternmenu > li > a.phoneplus {
+
+}
+
+ul.patternmenu > li.title{
+    background-color: midnightblue;
+    color: white;
+    z-index: 4;
+    display: block;
+}
+
+ul.patternmenu > li:not(.title){
+    text-decoration: none;
+    background-color: lightgrey;
+    color: white;
+    z-index: 4;
+    text-align: center;
+    box-shadow: 0 0 20px -5px;
+}
+
+ul.patternmenu > li > a.menutitle {
+    text-decoration: underline;
+    background-color: midnightblue;
+    color: white;
+    z-index: 4;
+}
+
+
+
+ul.patternmenu > li > a{
+    padding: 10px;
+    position: relative;
+}
+
+ul.patternmenu > li > a:not(.menutitle) {
+    text-align: center;
+    text-decoration: none;
+}
+
+ul.patternmenu > li > a:not(.active):not(.menutitle):not(.activeclickable):not(.collbutton) {
+    color: black;
+}
+
+
+
+ul.patternmenu > li > ul {
+    display: none;
+    clear: left;
+    padding-left: 0;
+    margin-left: 0;
+    box-shadow: -5px 14px 40px -10px grey;
+    z-index: 4;
+    list-style-type: none;
+}
+
+ul.patternmenu > li > ul > li > a {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    margin-left: 0;
+}
+
+ul.patternmenu > li > ul > li:not(hover) > a:not(.active) {
+    color: black;
+}
+
+ul.patternmenu > li > ul > li{
+    box-shadow: 0 0 10px -5px black;
+}
+
+ul.patternmenu > li > ul > li:not(hover) > a {
+
+}
+
+
+
+
+
+/* Content for patterns */
+
+
+/* Flexbox for Subcategories */
+div a.subPattern{
+    background-color:lightgray;
+    float:left;
+    display:block;
+    text-align: center;
+    margin: 10px;
+    padding:30px;
+    text-decoration: none;
+    color: black;
+}
+
+div a.subPattern:hover{
+    transition: all 1500ms ease;
+    background-color: blue;
+    color: white;
+    box-shadow: 5px 5px 20px -5px grey;
+}
+
+div.flexbox {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.subPatternTitle{
+    margin-bottom: 0;
+    text-align: center;
+}
+
+
+/* Table to display key data */
+table.statstable{
+    text-align: left;;
+    border-collapse: collapse;
+    font-size: 1em;
+
+}
+
+table.statstable > tbody > tr {
+    padding:10px;
+}
+
+table.statstable > tbody > tr:nth-child(even){
+    background-color: lightgray;
+}
+
+table.statstable > tbody > tr > th {
+    height: 30px;
+    padding: 10px;
+}
+
+table.statstable > tbody > tr > th > span.addinfo{
+    display: inline-block;
+    position: relative;
+}
+
+table.statstable > tbody > tr > th > span.addinfo > span{
+    min-width: 200px;
+    font-size:80%;
+    display:none;
+    position: absolute;
+    left:0;
+    bottom:0;
+    background-color: darkgrey;
+    padding: 10px;
+    box-shadow: 0 0 20px -5px blue;
+    color:white;
+    line-height: 0.9rem;
+}
+
+table.statstable > tbody > tr > th > span.addinfo > span:hover ,table.statstable > tbody > tr > th > span.addinfo:hover > span{
+    display:block;
+}
+
+table.statstable > tbody > tr > th.ez{
+    color: #d0d0ff;
+}
+table.statstable > tbody > tr > th.med{
+    color: #b0b0ff;
+}
+table.statstable > tbody > tr > th.adv{
+    color: #9090ff;
+}
+table.statstable > tbody > tr > th.hard{
+    color: #7070ff;
+}
+table.statstable > tbody > tr > th.extreme{
+    color: #5050ff;
+}
+
+/* Content on pages */
+
+
+/* Login button */
+div a.loginbtn{
+    background-color: blue;
+    color: white;
+}
+
+/* Contact */
+h2.contactquest{
+    text-align: center;
+}
+
+a.compemail{
+    text-align: center;
+}
