@@ -4,8 +4,8 @@
     <link rel="icon"
           type="image/png"
           href="/phpolysleep/resources/images/favicon.png">
-    <link rel="stylesheet" href="phpolysleep.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="../phpolysleep.css">
+    <script src="../script.js"></script>
 </head>
 <body>
 

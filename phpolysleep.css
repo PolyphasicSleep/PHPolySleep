@@ -74,7 +74,6 @@ body > :first-child{
     .navbartop > li.usermenu > a:not(.active){
         font-size: 1.2em;
         background-color: lightgrey;
-        color:white;
     }
 
 }
@@ -91,7 +90,6 @@ body > :first-child{
     .navbartop > li.usermenu > a:not(.active){
         font-size: 1.2em;
         background-color: lightgrey;
-        color:white;
         display:block;
     }
     .navbartop > li.usermenu {
