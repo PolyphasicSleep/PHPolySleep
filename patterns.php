@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>User profile</title>
+    <title>Patterns - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/phpolysleep/resources/images/favicon.png">
@@ -21,16 +21,7 @@ layout::header();
 ?>
 
 <main>
-    <div class="basiccontent">
-        <?php
-        if(isset($_SESSION["userAuth"]) && $_SESSION["userAuth"] == true){
-            echo "<h3>Hello, ".$_SESSION["userName"]."</h3>";
-            echo "<hr>";
-        } else {
-            echo "<h3>You are not logged in.</h3> <a href='index.php'>Log in here.</a>";
-        }
-        ?>
-    </div>
+
 </main>
 
 <?php

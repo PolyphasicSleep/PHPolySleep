@@ -148,8 +148,10 @@ h1{
 
 
 main{
-    overflow: hidden;
+    /*overflow: hidden;*/
     flex: 1;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 
@@ -402,9 +404,6 @@ ul.patternmenu > li > ul > li:not(hover) > a {
 }
 
 
-
-
-
 /* Content for patterns */
 
 
@@ -517,4 +516,35 @@ h2.contactquest{
 
 a.compemail{
     text-align: center;
+}
+
+/* Login/sign up form */
+div.loginform{
+    overflow: visible;
+    width:250px;
+    margin: 0 auto;
+    display:block;
+    clear:both;
+}
+
+div.loginform > form > input:not(.submit){
+    display: table-cell;
+    width:100%;
+}
+
+div.loginform > form > input.submit{
+    display: block;
+    margin:0 auto;
+    background-color: blue;
+    color: white;
+    padding: 15px;
+    border: none;
+}
+
+div.loginform > form > input.submit:hover{
+    cursor: pointer;
+}
+
+p.warning{
+    color:darkred;
 }

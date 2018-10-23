@@ -6,7 +6,7 @@
  * Time: 17:15
  */
 
-class testclass
+class layout
 {
 
     public static function header(){
@@ -14,14 +14,16 @@ class testclass
         $activepage = $_SERVER["PHP_SELF"];
 
         $headerstring =
-            '<ul class = "navbartop">
-                <li><a href="/phpolysleep/index.html">Home</a></li>
-                <li><a href="/Statistics.html">Statistics</a></li>
-                <li><a href="/Patterns.html">Patterns</a></li>
-                <li><a href="/EBook.html">E-Book</a></li>
-                <li><a href="/App.html">App</a></li>
-                <li><a href="/Contact.html">Contact</a></li>
-                <li><a href="/phpolysleep/testschritt2.php">BOB</a></li>
+            '<h1>Polyphasic Sleep</h1>
+             <ul class = "navbartop">
+                <li><a href="/phpolysleep/home.php">Home</a></li>
+              <!--  <li><a href="/Statistics.html">Statistics</a></li> -->
+                <li><a href="/phpolysleep/patterns.php">Patterns</a></li>
+               <!-- <li><a href="/EBook.html">E-Book</a></li> -->
+                <li><a href="/phpolysleep/app.php">App</a></li>
+                <li><a href="/phpolysleep/contact.php">Contact</a></li>
+                <li><a href="/phpolysleep/index.php">Login</a></li>
+                <li><a href="/phpolysleep/testschritt2.php">NAMENAMENAME</a></li>
                 <li class="navhamburgermenu">
                     <a class="more" onclick="displaymorenav()"><span>&#x2630</span></a>
                 </li>
@@ -33,6 +35,15 @@ class testclass
         } else {
             $replaced = $headerstring;
         }
+
+        if($_SESSION["userAuth"]){
+            $replaced = str_replace("Login", "Logout", $replaced);
+            $replaced = str_replace("NAMENAMENAME", $_SESSION["userName"], $replaced);
+        } else {
+            $replaced = str_replace("<li><a href=\"/phpolysleep/testschritt2.php\">NAMENAMENAME</a></li>", "", $replaced);
+        }
+
+
         echo $replaced;
     }
 
