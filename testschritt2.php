@@ -5,7 +5,7 @@
           type="image/png"
           href="/phpolysleep/resources/images/favicon.png">
     <link rel="stylesheet" href="phpolysleep.css">
-    <script src="login.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
 

@@ -21,6 +21,12 @@ layout::header();
 ?>
 
 <main>
+    <div class="basiccontent">
+        <h3>You have been logged out successfully.</h3>
+        <hr>
+        <a href="/phpolysleep/home.php">Home</a><br>
+        <a href="/phpolysleep/index.php">Log in again</a>
+    </div>
 
 </main>
 

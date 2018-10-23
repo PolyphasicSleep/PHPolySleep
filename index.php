@@ -6,7 +6,7 @@
            type="image/png"
            href="/phpolysleep/resources/images/favicon.png">
      <link rel="stylesheet" href="phpolysleep.css">
-     <script src="login.js"></script>
+     <script src="script.js"></script>
  </head>
  <body>
 
@@ -125,7 +125,7 @@
          $results = "Successfully authenticated <br>Hello, $usernameinput!";
          $_SESSION["userAuth"] = true;
          $_SESSION["userName"] = $usernameinput;
-         header("Location: /phpolysleep/testschritt2.php");
+         header("Location: /testschritt2.php");
      } else {
          $results = "Could not authenticate password/user combination.";
      }

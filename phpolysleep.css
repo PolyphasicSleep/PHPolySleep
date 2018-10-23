@@ -53,6 +53,7 @@ body > :first-child{
     background-color: lightgrey;
 }
 
+
 .navbartop > div:hover{
     cursor: pointer;
 }
@@ -70,6 +71,12 @@ body > :first-child{
         display: inline-block;
     }
 
+    .navbartop > li.usermenu > a:not(.active){
+        font-size: 1.2em;
+        background-color: lightgrey;
+        color:white;
+    }
+
 }
 @media only screen and (min-width: 700px) {
     .navbartop > li > a {
@@ -79,6 +86,18 @@ body > :first-child{
     }
     .navbartop > li.navhamburgermenu{
         display: none;
+    }
+
+    .navbartop > li.usermenu > a:not(.active){
+        font-size: 1.2em;
+        background-color: lightgrey;
+        color:white;
+        display:block;
+    }
+    .navbartop > li.usermenu {
+        position: absolute;
+        right:0;
+        top:0;
     }
 }
 
