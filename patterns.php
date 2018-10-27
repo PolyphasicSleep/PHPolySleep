@@ -8,7 +8,7 @@
           href="/resources/images/favicon.png">
     <link rel="stylesheet" href="/styles.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <script src="/script.js"></script>
+    <script src="/scripts.js"></script>
 </head>
 <body>
 
