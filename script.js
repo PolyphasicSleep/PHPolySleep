@@ -82,7 +82,7 @@ function saveSchedule(schedule){
     let button = document.getElementById("selectSched");
     button.innerHTML = "Processing...";
     let request = new XMLHttpRequest();
-    request.open("POST", "/phpolysleep/executables/saveschedule.php", true);
+    request.open("POST", "/executables/saveschedule.php", true);
     request.onreadystatechange = function(){
         if(this.readyState === 4 && this.status === 200){
             //Successfully executed php file

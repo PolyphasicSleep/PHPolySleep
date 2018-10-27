@@ -3,21 +3,22 @@
     <title>Dual core - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
-          href="/phpolysleep/resources/images/favicon.png">
-    <link rel="stylesheet" href="../../phpolysleep.css">
+          href="/resources/images/favicon.png">
+    <link rel="stylesheet" href="/phpolysleep.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <script src="../../script.js"></script>
+    <script src="/script.js"></script>
 </head>
 <body>
 
 <?php
 
-include("../../classes/siteSession.php");
+include("/classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("../../classes/layout.php");
+include("/classes/layout.php");
 layout::header();
+
 
 ?>
 

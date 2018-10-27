@@ -1,7 +1,7 @@
 <?php
-include("../classes/siteSession.php");
+include("/classes/siteSession.php");
 //include("/phpolysleep/classes/layout.php");
-include("../classes/dataScripts.php");
+include("/classes/dataScripts.php");
 
 $session = new siteSession();
 $session->startSession();
