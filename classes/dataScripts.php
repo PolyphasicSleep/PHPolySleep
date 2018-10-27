@@ -217,7 +217,7 @@ class dataScripts
                 $_SESSION["userAuth"] = true;
                 $_SESSION["userName"] = $usernameinput;
                 session_regenerate_id(false);
-                header("Location: /phpolysleep/pages/user.php");
+                header("Location: /user.php");
             }
         }
         $conn->close();
@@ -359,87 +359,7 @@ class dataScripts
         return $conn;
     }
 
-    public function deleteEVERYTHING(){
-        $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD);
-        $results="";
-        $deleteDB = "DROP DATABASE IF EXISTS TestBase";
-        $doit = $conn->prepare($deleteDB);
-        $results = $doit->execute();
-        return $results;
-    }
 
-    public function createEVERYTHING(){
-        // Create connection
-        $resultstring = "";
-        $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD);
-
-        $createquery = "CREATE DATABASE IF NOT EXISTS PolySleepDB";
-
-        if($conn->query($createquery) === TRUE){
-            $resultstring.="Successfully created DB<br>";
-        } else {
-            $resultstring.= "Create DB: Get rekt <br>";
-            return $resultstring;
-        }
-
-        $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, "PolySleepDB");
-
-        // Check connection
-        if ($conn->connect_error) {
-            $resultstring.=("Connection failed: " . $conn->connect_error);
-            return $resultstring;
-        } else {
-            $resultstring.="Successfully connected<br>";
-        }
-        #echo "Connected successfully";
-        #echo "<br>";
-
-        $createtablequery = "CREATE TABLE IF NOT EXISTS Users (
-                            id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                            username VARCHAR(30) NOT NULL,
-                            password VARCHAR(30) NOT NULL,
-                            email VARCHAR(30) NOT NULL,
-                            verified TINYINT(1) NOT NULL, 
-                            creationtimestamp INT NOT NULL, 
-                            verificationcode VARCHAR(35) NOT NULL)";
-
-        if(!($conn->query($createtablequery) === TRUE)){
-            $resultstring.="Create Table: Get rekt <br>";
-            return $resultstring;
-        } else {
-            $resultstring.="Successfully created Users table<br>";
-        }
-
-        $createscheduletablequery= "CREATE TABLE IF NOT EXISTS Schedules(
-                                    id int(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                                    userID int(6) UNSIGNED NOT NULL,
-                                    schedulename VARCHAR(30) NOT NULL,
-                                    starttimestamp int UNSIGNED NOT NULL,
-                                    FOREIGN KEY (userID) REFERENCES Users(id) ON DELETE CASCADE)";
-
-        if(!($conn->query($createscheduletablequery) === TRUE)){
-            $resultstring.=("Create Schedule Table: FAILED!".$conn->errno." ".$conn->error);
-            return $resultstring;
-        } else {
-            $resultstring.="Successfully created Schedules table<br>";
-        }
-
-        $createscheduletimestable = "CREATE TABLE IF NOT EXISTS scheduletimes(
-                                    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                                    scheduleID INT UNSIGNED NOT NULL, 
-                                    starttime INT UNSIGNED NOT NULL,
-                                    endtime INT UNSIGNED NOT NULL, 
-                                    sleeptype VARCHAR(10) NOT NULL,
-                                    FOREIGN KEY (scheduleID) REFERENCES Schedules(id) ON DELETE CASCADE)";
-
-        if(!($conn->query($createscheduletimestable) === TRUE)){
-            die("Create Scheduletimes Table: FAILED!".$conn->errno." ".$conn->error);
-        } else {
-            $resultstring.="Successfully created ScheduleTimes table.<br>";
-        }
-        return $resultstring;
-
-    }
 
     //This
     private function randomString($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
