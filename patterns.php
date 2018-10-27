@@ -6,7 +6,7 @@
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
-    <link rel="stylesheet" href="/phpolysleep.css">
+    <link rel="stylesheet" href="/styles.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="/script.js"></script>
 </head>

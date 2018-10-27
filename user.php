@@ -43,7 +43,13 @@ if(isset($_POST["save"])){
 }
 
 if(isset($_GET["vfc"])){
-    $dataHandle->verifyUser($_GET["vfc"]);
+    if($dataHandle->verifyUser($_GET["vfc"])){
+        //Successfully verified
+        $verFB = "Account successfully verified!";
+    } else {
+        //failed to verify
+        $verFB = "Failed to verify account.";
+    }
 }
 
 layout::header();
@@ -53,6 +59,10 @@ layout::header();
 <main>
     <div class="basiccontent">
         <?php
+        if(isset($verFB)){
+            echo "<h2>".$verFB."</h2>";
+        }
+
         if(isset($_SESSION["userAuth"]) && $_SESSION["userAuth"] == true){
             echo "<h3>Hello, ".$_SESSION["userName"]."!</h3>";
 

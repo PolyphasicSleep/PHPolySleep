@@ -8,7 +8,7 @@ class dataScripts
     function __construct(){
         define("SERVERNAME", "aamx4dtkuzakop.cf8znimwntrp.eu-central-1.rds.amazonaws.com:3306");
         define("USERNAME", "bob");
-        define("PASSWORD", "zweiundzwanzig");
+        define("PASSWORD", "UpFR37Hijp0pYp5vmpMDvZKI4rUUxJ");
         $this->recCounter = 0;
         $this->timeZoneOffset = date("Z");
     }
@@ -224,6 +224,28 @@ class dataScripts
         return $results;
     }
 
+    public function verifyUser($vfc){
+        $conn = $this->connectToDB();
+        $verification = "UPDATE Users SET verified = 1 WHERE verificationcode = ?";
+        $readyquery = $conn->prepare($verification);
+        $readyquery->bind_param("s", $vfc);
+        $success = $readyquery->execute();
+        if($success){
+            $user = "SELECT username WHERE verificationcode = ?";
+            $userquery = $conn->prepare($user);
+            $userquery->bind_param("s", $vfc);
+            $userquery->execute();
+            $userquery->bind_result($username);
+            $userquery->fetch();
+
+            $_SESSION["userName"] = $username;
+            $_SESSION["userAuth"] = true;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function deleteUser($username){
         $conn = $this->connectToDB();
 
@@ -329,57 +351,45 @@ class dataScripts
     private function connectToDB(){
 
         // Create connection
-        $conn = new mysqli("localhost", USERNAME, PASSWORD, "TestBase");
-
+        $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, "PolySleepDB");
         // Check connection
         if ($conn->connect_error) {
-            $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, "TestBase");
-            if ($conn->connect_error) {
-                $this->recCounter ++;
-                if($this->recCounter <= 10){
-                    $this->createDB();
-                    $conn = $this->connectToDB();
-                } else {
-                    die("Could not connect to database nor create it: ".$conn->errno." ".$conn->error);
-                }
-            }
+            die("Could not connect to database: ".$conn->errno." ".$conn->error);
         }
         return $conn;
     }
 
-    private function createDB(){
+    public function deleteEVERYTHING(){
+        $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD);
+        $results="";
+        $deleteDB = "DROP DATABASE IF EXISTS TestBase";
+        $doit = $conn->prepare($deleteDB);
+        $results = $doit->execute();
+        return $results;
+    }
+
+    public function createEVERYTHING(){
         // Create connection
-        $conn = new mysqli("localhost", USERNAME, PASSWORD);
+        $resultstring = "";
+        $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD);
 
-        $local = true;
-
-        // Check connection
-        if ($conn->connect_error) {
-            #echo("Local Connection failed: " . $conn->connect_error);
-            $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD);
-            if ($conn->connect_error) {
-                die("Server Connection failed: " . $conn->connect_error);
-            }
-            $local = false;
-        }
-
-        $createquery = "CREATE DATABASE IF NOT EXISTS TestBase";
+        $createquery = "CREATE DATABASE IF NOT EXISTS PolySleepDB";
 
         if($conn->query($createquery) === TRUE){
-            #echo "Create DB: TOO EZ <br>";
+            $resultstring.="Successfully created DB<br>";
         } else {
-            echo "Create DB: Get rekt <br>";
+            $resultstring.= "Create DB: Get rekt <br>";
+            return $resultstring;
         }
 
-        if(!$local){
-            $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, "TestBase");
-        } else {
-            $conn = new mysqli("localhost", USERNAME, PASSWORD, "TestBase");
-        }
+        $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, "PolySleepDB");
 
         // Check connection
         if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            $resultstring.=("Connection failed: " . $conn->connect_error);
+            return $resultstring;
+        } else {
+            $resultstring.="Successfully connected<br>";
         }
         #echo "Connected successfully";
         #echo "<br>";
@@ -388,19 +398,16 @@ class dataScripts
                             id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                             username VARCHAR(30) NOT NULL,
                             password VARCHAR(30) NOT NULL,
-                            email VARCHAR(30) NOT NULL)";
+                            email VARCHAR(30) NOT NULL,
+                            verified TINYINT(1) NOT NULL, 
+                            creationtimestamp INT NOT NULL, 
+                            verificationcode VARCHAR(35) NOT NULL)";
 
         if(!($conn->query($createtablequery) === TRUE)){
-            echo "Create Table: Get rekt <br>";
-        }
-
-        $columns = $conn->query("SHOW COLUMNS FROM Users LIKE 'email'");
-        $exists = $columns->num_rows > 0;
-        if(!$exists){
-            $droptable = "DROP TABLE IF EXISTS Users";
-            $conn->query($droptable);
-            $conn->query($createtablequery);
-            echo "Rebuilt table <br>";
+            $resultstring.="Create Table: Get rekt <br>";
+            return $resultstring;
+        } else {
+            $resultstring.="Successfully created Users table<br>";
         }
 
         $createscheduletablequery= "CREATE TABLE IF NOT EXISTS Schedules(
@@ -411,8 +418,26 @@ class dataScripts
                                     FOREIGN KEY (userID) REFERENCES Users(id) ON DELETE CASCADE)";
 
         if(!($conn->query($createscheduletablequery) === TRUE)){
-            die("Create Schedule Table: FAILED!".$conn->errno." ".$conn->error);
+            $resultstring.=("Create Schedule Table: FAILED!".$conn->errno." ".$conn->error);
+            return $resultstring;
+        } else {
+            $resultstring.="Successfully created Schedules table<br>";
         }
+
+        $createscheduletimestable = "CREATE TABLE IF NOT EXISTS scheduletimes(
+                                    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                                    scheduleID INT UNSIGNED NOT NULL, 
+                                    starttime INT UNSIGNED NOT NULL,
+                                    endtime INT UNSIGNED NOT NULL, 
+                                    sleeptype VARCHAR(10) NOT NULL,
+                                    FOREIGN KEY (scheduleID) REFERENCES Schedules(id) ON DELETE CASCADE)";
+
+        if(!($conn->query($createscheduletimestable) === TRUE)){
+            die("Create Scheduletimes Table: FAILED!".$conn->errno." ".$conn->error);
+        } else {
+            $resultstring.="Successfully created ScheduleTimes table.<br>";
+        }
+        return $resultstring;
 
     }
 
