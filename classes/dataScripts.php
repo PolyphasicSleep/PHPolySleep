@@ -53,7 +53,7 @@ class dataScripts
 
     private function setScheduleTimes($schedule, $scheduleID){
         $conn = $this->connectToDB();
-        include("timeScripts.php");
+        require_once("../classes/timeScripts.php");
         $timesHandle = new timeScripts();
 
         $timesInfo = $timesHandle->getDefaultTimes($schedule);
@@ -80,12 +80,12 @@ class dataScripts
     public function getCurrentScheduleTimes($username){
         $conn = $this->connectToDB();
 
-        $timesByName = "SELECT st.starttime, st.endtime, st.sleeptype, st.id FROM testbase.scheduletimes st
+        $timesByName = "SELECT st.starttime, st.endtime, st.sleeptype, st.id FROM scheduletimes st
                         INNER JOIN 
                             (SELECT max(s.id) AS id
-                            FROM (testbase.schedules s
+                            FROM (schedules s
                             INNER JOIN
-                                (SELECT * FROM testbase.users WHERE username = ?) userdude
+                                (SELECT * FROM users WHERE username = ?) userdude
                             ON userdude.id = s.userID)) sy
                         ON sy.id = st.scheduleID";
         $readyquery = $conn->prepare($timesByName);
@@ -109,12 +109,12 @@ class dataScripts
     public function getOldScheduleTimes($username, $schedulename){
         $conn = $this->connectToDB();
 
-        $recentTimes = "SELECT st.starttime, st.endtime, st.sleeptype, sy.starttimestamp FROM testbase.scheduletimes st
+        $recentTimes = "SELECT st.starttime, st.endtime, st.sleeptype, sy.starttimestamp FROM scheduletimes st
                         INNER JOIN 
                             (SELECT s.id AS id, starttimestamp
-                            FROM (testbase.schedules s
+                            FROM (schedules s
                             INNER JOIN
-                                (SELECT * FROM testbase.users WHERE username = ?) userdude
+                                (SELECT * FROM users WHERE username = ?) userdude
                             ON userdude.id = s.userID)
                             WHERE s.schedulename = ?
                             ORDER BY s.starttimestamp DESC
