@@ -57,7 +57,7 @@ class dataScripts
         $timesHandle = new timeScripts();
 
         $timesInfo = $timesHandle->getDefaultTimes($schedule);
-        //$oldInfo = $this->getOldScheduleTimes($_SESSION["userName"], $schedule);
+        $oldInfo = $this->getOldScheduleTimes($_SESSION["userName"], $schedule);
 
         if($oldInfo !== null && count($oldInfo[0]) !== 0){
             $timesInfo = $oldInfo;
@@ -92,7 +92,7 @@ class dataScripts
                             (SELECT max(s.id) AS id
                             FROM (Schedules s
                             INNER JOIN
-                                (SELECT * FROM users WHERE username = ?) userdude
+                                (SELECT * FROM Users WHERE username = ?) userdude
                             ON userdude.id = s.userID)) sy
                         ON sy.id = st.scheduleID";
         if(!($readyquery = $conn->prepare($timesByName))){
@@ -129,7 +129,7 @@ class dataScripts
                             (SELECT s.id AS id, starttimestamp
                             FROM (Schedules s
                             INNER JOIN
-                                (SELECT * FROM users WHERE username = ?) userdude
+                                (SELECT * FROM Users WHERE username = ?) userdude
                             ON userdude.id = s.userID)
                             WHERE s.schedulename = ?
                             ORDER BY s.starttimestamp DESC
