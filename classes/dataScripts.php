@@ -61,7 +61,9 @@ class dataScripts
 
         if($oldInfo !== null && count($oldInfo[0]) !== 0){
             $timesInfo = $oldInfo;
-            header("Location: /debug.php?info="."Acquiring old info!?");
+
+            #Only for debugging
+            //header("Location: /debug.php?info="."Acquiring old info!?");
         }
 
         $starttimes = $timesInfo[0];
@@ -72,7 +74,12 @@ class dataScripts
 
         for($i = 0; $i < $sleepscount; $i++) {
             $inserttimes = "INSERT INTO scheduletimes (scheduleID, starttime, endtime, sleeptype) VALUES (?,?,?,?)";
-            if(!($readyquery = $conn->prepare($inserttimes))){
+            $readyquery = $conn->prepare($inserttimes);
+            $readyquery->bind_param("iiis",$scheduleID, $starttimes[$i], $endtimes[$i], $sleeptypes[$i]);
+            $readyquery->execute();
+
+            //Only for debugging:
+           /* if(!($readyquery = $conn->prepare($inserttimes))){
                 header("Location: /debug.php?info=".$conn->error);
             }
             if(!($readyquery->bind_param("iiis",$scheduleID, $starttimes[$i], $endtimes[$i], $sleeptypes[$i]))){
@@ -80,7 +87,7 @@ class dataScripts
             }
             if(!($readyquery->execute())){
                 header("Location: /debug.php?info=".$conn->error);
-            }
+            } */
         }
     }
 
@@ -95,6 +102,13 @@ class dataScripts
                                 (SELECT * FROM Users WHERE username = ?) userdude
                             ON userdude.id = s.userID)) sy
                         ON sy.id = st.scheduleID";
+        $readyquery = $conn->prepare($timesByName);
+        $readyquery->bind_param("s", $username);
+        $readyquery->execute();
+        $readyquery->bind_result($starttimes, $endtimes, $sleeptypes, $ids);
+
+        //Only for debugging
+        /*
         if(!($readyquery = $conn->prepare($timesByName))){
             header("Location: /debug.php?info=".$conn->error);
         }
@@ -106,7 +120,8 @@ class dataScripts
         }
         if(!($readyquery->bind_result($starttimes, $endtimes, $sleeptypes, $ids))){
             header("Location: /debug.php?info=".$conn->error);
-        }
+        }*/
+
         $i = 0;
         while($readyquery->fetch()){
             $startarray[$i] = $starttimes;
