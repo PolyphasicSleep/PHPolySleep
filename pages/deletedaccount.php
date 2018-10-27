@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Contact - Polyphasic sleep</title>
+    <title>User profile - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/phpolysleep/resources/images/favicon.png">
@@ -16,6 +16,17 @@ include("../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
+include("../classes/dataScripts.php");
+$dataHandle = new dataScripts();
+
+if(isset($_SESSION["userAuth"]) && $_SESSION["userAuth"] == true){
+    $results = $dataHandle->deleteUser($_SESSION["userName"]);
+    $session->destroySession();
+} else {
+    $results = "<h3>You are not logged in.</h3> <a href='/phpolysleep/pages/login.php'>Log in here.</a>";
+}
+
+
 include("../classes/layout.php");
 layout::header();
 
@@ -23,16 +34,9 @@ layout::header();
 
 <main>
     <div class="basiccontent">
-        <br>
-        <h2 class="contactquest">Is there anything you want to tell us?</h2>
-        <br>
-        <h2 class="contactquest">Do you have any questions, suggestions, or ideas to improve our service?</h2>
-        <br>
-        <h2 class="contactquest">Let us know!</h2>
-        <br>
-        <div style="text-align: center">
-            <a class="compemail" href="mailto:polyphasic.info@gmail.com">polyphasic.info@gmail.com</a>
-        </div>
+        <?php
+            echo $results;
+        ?>
     </div>
 </main>
 

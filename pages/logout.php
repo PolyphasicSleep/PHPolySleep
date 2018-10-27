@@ -5,17 +5,25 @@
           type="image/png"
           href="/phpolysleep/resources/images/favicon.png">
     <link rel="stylesheet" href="../phpolysleep.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <script src="../script.js"></script>
 </head>
 <body>
 
 <?php
 
-include("siteSession.php");
+include("../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("layout.php");
+$_SESSION["userAuth"] = false;
+unset($_SESSION["userName"]);
+
+session_regenerate_id(false);
+
+$session->destroySession();
+
+include("../classes/layout.php");
 layout::header();
 
 ?>
@@ -24,8 +32,8 @@ layout::header();
     <div class="basiccontent">
         <h3>You have been logged out successfully.</h3>
         <hr>
-        <a href="/phpolysleep/home.php">Home</a><br>
-        <a href="/phpolysleep/index.php">Log in again</a>
+        <a href="/phpolysleep/index.php">Home</a><br>
+        <a href="/phpolysleep/pages/login.php">Log in again</a>
     </div>
 
 </main>

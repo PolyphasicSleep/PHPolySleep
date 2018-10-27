@@ -4,18 +4,19 @@
     <link rel="icon"
           type="image/png"
           href="/phpolysleep/resources/images/favicon.png">
-    <link rel="stylesheet" href="../phpolysleep.css">
-    <script src="../script.js"></script>
+    <link rel="stylesheet" href="phpolysleep.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="script.js"></script>
 </head>
 <body>
 
 <?php
 
-include("siteSession.php");
+include("classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("layout.php");
+include("classes/layout.php");
 layout::header();
 
 ?>

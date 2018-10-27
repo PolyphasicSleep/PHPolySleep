@@ -44,7 +44,7 @@ body > :first-child{
     position: absolute;
     right:0;
     top:0;
-    font-size: 1.2em;
+    font-size: 1.1em;
     background-color: lightgrey;
     color: white;
 }
@@ -217,6 +217,11 @@ main{
         z-index: 4;
         display: inline-block;
     }
+
+    ul.patternmenu > li:not(hover) > a:not(.active):not(.menutitle):not(.collbutton){
+        color: black;
+    }
+
     div.basiccontent{
         margin-left:10%;
         margin-right:10%;
@@ -228,11 +233,15 @@ main{
         background-color: white;
     }
 
+    ul.patternmenu{
+        width:100%;
+    }
+
 }
 
 
-/* Responsiveness for larger screens */
-@media only screen and (min-width: 600px){
+/* Responsiveness for larger screens, probably still touch-operated */
+@media only screen and (min-width: 600px) and (max-width: 992px){
     .col-1 {
         width: 8.33%;
     }
@@ -273,7 +282,7 @@ main{
     ul.patternmenu > li > ul {
         width: 20%;
         line-height: 35px;
-        margin-top: -55px;
+        margin-top: -54.5px;
         position: absolute;
         background-color: lightgrey;
     }
@@ -281,9 +290,131 @@ main{
         left: 25%;
         float: right;
     }
+
+    ul.patternmenu > li > a{
+        display: inline-block;
+        background-color: lightgrey;
+        color: black;
+    }
+
+    ul.patternmenu > li:not(hover) > a:not(.active):not(.menutitle){
+        color: black;
+    }
+
+    ul.patternmenu > li > a > span.desktoparr {
+        display: none;
+    }
+
+    ul.patternmenu > li > a.phoneplus {
+        display: inline-block;
+    }
+
+    ul.patternmenu > li > a:hover {
+        cursor: pointer;
+    }
+
+    table.statstable{
+        width: 70%;
+    }
+    div.patterncontent > *{
+        margin-left:15%;
+        margin-right:15%;
+    }
+    ul.patternmenu > li > a.collbutton {
+        display: none;
+    }
+
+    div.basiccontent{
+        margin-left:20%;
+        margin-right:20%;
+    }
+
+   /* ul.patternmenu > li:hover > a:not(.active):not(.menutitle) {
+        background-color: blue;
+        color: white;
+    }*/
+
+    ul.patternmenu > li:not(.title){
+        display: block;
+    }
+
+    h2{
+        padding-top: 20px;
+    }
+    ul.patternmenu > li:hover > ul, ul.patternmenu > li > ul:hover {
+        display: block;
+    }
+   /* ul.patternmenu > li > ul > li:hover > a:not(.active) {
+        background-color: blue;
+        color: white;
+    }*/
+
+    ul.patternmenu{
+        margin-left:2%;
+        width:98%;
+    }
+
+}
+
+/*Hopefully mouse-operated*/
+@media only screen and (min-width: 992px){
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+
+    ul.patternmenu > li > ul {
+        width: 20%;
+        line-height: 35px;
+        margin-top: -54.5px;
+        position: absolute;
+        background-color: lightgrey;
+    }
+    ul.patternmenu > li:hover > ul, ul.patternmenu > li > ul:hover {
+        left: 25%;
+        float: right;
+    }
+
     ul.patternmenu > li > a{
         display: block;
     }
+
+    ul.patternmenu > li:not(hover) > a:not(.active):not(.menutitle){
+        color: black;
+    }
+
     ul.patternmenu > li > a > span.desktoparr {
 
     }
@@ -306,7 +437,7 @@ main{
         margin-right:20%;
     }
 
-    ul.patternmenu > li > a:hover:not(.active):not(.menutitle) {
+    ul.patternmenu > li:hover > a:not(.active):not(.menutitle) {
         background-color: blue;
         color: white;
     }
@@ -322,12 +453,15 @@ main{
         display: block;
     }
     ul.patternmenu > li > ul > li:hover > a:not(.active) {
-        color: white;
         background-color: blue;
+        color: white;
     }
 
+    ul.patternmenu{
+        margin-left:2%;
+        width:98%;
+    }
 }
-
 
 /* Menu for Sleep Patterns */
 ul.patternmenu {
@@ -338,16 +472,14 @@ ul.patternmenu {
     overflow: hidden;
     line-height: 35px;
     float:left;
-    box-shadow: 5px 5px 20px -5px grey;
+    box-shadow: 0 0 20px -5px;
     font-size: 1.1em;
 }
 
 ul.patternmenu > li > a > span.desktoparr {
     float: right;
 }
-ul.patternmenu > li > a.phoneplus {
 
-}
 
 ul.patternmenu > li.title{
     background-color: midnightblue;
@@ -384,9 +516,7 @@ ul.patternmenu > li > a:not(.menutitle) {
     text-decoration: none;
 }
 
-ul.patternmenu > li > a:not(.active):not(.menutitle):not(.activeclickable):not(.collbutton) {
-    color: black;
-}
+
 
 
 
@@ -564,4 +694,82 @@ div.loginform > form > input.submit:hover{
 
 p.warning{
     color:darkred;
+}
+
+div > a.scheduleBtn:hover{
+    transition: all 1500ms ease;
+    background-color: blue;
+    color: white;
+    box-shadow: 5px 5px 20px -5px grey;
+    cursor: pointer;
+
+}
+
+div > a.scheduleBtn {
+    padding:10px;
+    background-color: lightgrey;
+    text-decoration: none;
+    color:black;
+}
+
+#selectSched {
+    padding:10px;
+    background-color: lightgrey;
+    text-decoration: none;
+    color:black;
+}
+
+#selectSched:hover {
+    transition: all 1500ms ease;
+    background-color: blue;
+    color: white;
+    box-shadow: 5px 5px 20px -5px grey;
+    cursor: pointer;
+}
+
+div.scheduleBtnCon{
+    margin-top: 3%;
+    text-align: center;
+}
+
+span.editpencil{
+    float:right;
+    display:inline-block;
+    margin-top: 15px;
+}
+
+span.editpencil > a{
+    background-color: blue;
+    color:white;
+    padding:10px;
+}
+
+span.editpencil > a:hover{
+    cursor:pointer;
+}
+
+div#timesEditor{
+    overflow: auto;
+    display: none;
+}
+
+div#timesEditor > form{
+    line-height: 1.7em;
+}
+
+div#timesEditor > form > input.submit{
+    padding:10px;
+    background-color: lightgrey;
+    text-decoration: none;
+    color:black;
+    border: none;
+
+}
+
+div#timesEditor > form > input.submit:hover{
+    transition: all 1500ms ease;
+    background-color: blue;
+    color: white;
+    box-shadow: 5px 5px 20px -5px grey;
+    cursor: pointer;
 }
