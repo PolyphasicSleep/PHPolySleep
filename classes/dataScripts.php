@@ -57,7 +57,7 @@ class dataScripts
         $timesHandle = new timeScripts();
 
         $timesInfo = $timesHandle->getDefaultTimes($schedule);
-        $oldInfo = $this->getOldScheduleTimes($_SESSION["userName"], $schedule);
+        //$oldInfo = $this->getOldScheduleTimes($_SESSION["userName"], $schedule);
 
         if($oldInfo !== null && count($oldInfo[0]) !== 0){
             $timesInfo = $oldInfo;
@@ -95,10 +95,18 @@ class dataScripts
                                 (SELECT * FROM users WHERE username = ?) userdude
                             ON userdude.id = s.userID)) sy
                         ON sy.id = st.scheduleID";
-        $readyquery = $conn->prepare($timesByName);
-        $readyquery->bind_param("s", $username);
-        $readyquery->execute();
-        $readyquery->bind_result($starttimes, $endtimes, $sleeptypes, $ids);
+        if(!($readyquery = $conn->prepare($timesByName))){
+            header("Location: /debug.php?info=".$conn->error);
+        }
+        if(!($readyquery->bind_param("s", $username))){
+            header("Location: /debug.php?info=".$conn->error);
+        }
+        if(!($readyquery->execute())){
+            header("Location: /debug.php?info=".$conn->error);
+        }
+        if(!($readyquery->bind_result($starttimes, $endtimes, $sleeptypes, $ids))){
+            header("Location: /debug.php?info=".$conn->error);
+        }
         $i = 0;
         while($readyquery->fetch()){
             $startarray[$i] = $starttimes;
