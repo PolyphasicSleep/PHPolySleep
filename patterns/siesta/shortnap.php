@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Monophasic Sleep - Polyphasic sleep</title>
+    <title>Siesta Sleep (short nap) - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
@@ -28,24 +30,28 @@ layout::header();
 
     ?>
     <div class="patterncontent col-9">
-        <h2>Monophasic Sleep</h2>
-        <p>Monophasic sleep is the most widespread method of sleeping. It consists of just one sleep period, which is usually scheduled at night time.</p>
+        <h2>Siesta sleep with short nap</h2>
+        <p>
+            The short nap featured in this sleep pattern is very powerful. Not only does it provide a boost of energy and
+            motivation, but it also allows to reduce the duration of nightly sleep considerably. Therefore, it is a very
+            popular polyphasic sleep pattern.
+        </p>
         <table class="statstable">
             <tr>
                 <th>Total sleep time</th>
-                <th>6-9h</th>
+                <th>6h 20min</th>
             </tr>
             <tr>
                 <th>Total number of sleep periods</th>
-                <th>1</th>
+                <th>2</th>
             </tr>
             <tr>
                 <th>Total awake time</th>
-                <th>15-18h</th>
+                <th>17h 40min</th>
             </tr>
             <tr>
                 <th>Sleep time saved <span class="addinfo"><sup>&#x24D8</sup><span>compared to the average sleep time of a 20-year-old (7.5h)</span></span></th>
-                <th>0</th>
+                <th>1h 10min (&#x2248 16%)</th>
             </tr>
             <tr>
                 <th>Difficulty level <span class="addinfo"><sup>&#x24D8</sup><span>
@@ -58,13 +64,13 @@ layout::header();
                 <br>- hard
                 <br>- extreme
                 </span></span></th>
-                <th class="ez">easy</th>
+                <th class="med">medium</th>
             </tr>
 
         </table>
 
         <?php
-        layout::scheduleButton("Monophasic Sleep");
+        layout::scheduleButton("Siesta sleep (short nap)");
         ?>
 
     </div>

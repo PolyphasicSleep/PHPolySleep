@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Uberman - Polyphasic sleep</title>
+    <title>Monophasic Sleep - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
@@ -28,34 +30,24 @@ layout::header();
 
     ?>
     <div class="patterncontent col-9">
-        <h2>Uberman sleep</h2>
-        <p>
-            Uberman sleep is probably the most extreme approach to polyphasic sleep. It consists of six naps that are
-            distributed perfectly evenly throughout the entire day, with each starting exactly 3 hours and 40 minutes after
-            the previous one has ended. Thereby, a ultradian rhythm is achieved (similarly to
-            <a href="triphasicSleep.html">Triphasic sleep</a>
-            ). Comparably to
-            <a href="everymanSleep/e4.html">Everyman 4 sleep</a>
-            , <b>this pattern will not work for most people, as it doesn't provide any deep sleep!</b>
-            Still, several people have tried and succeeded adapting to this pattern.
-            <br><b>It is not recommended to follow this sleep pattern.</b>
-        </p>
+        <h2>Monophasic Sleep</h2>
+        <p>Monophasic sleep is the most widespread method of sleeping. It consists of just one sleep period, which is usually scheduled at night time.</p>
         <table class="statstable">
             <tr>
                 <th>Total sleep time</th>
-                <th>2h</th>
+                <th>6-9h</th>
             </tr>
             <tr>
                 <th>Total number of sleep periods</th>
-                <th>6</th>
+                <th>1</th>
             </tr>
             <tr>
                 <th>Total awake time</th>
-                <th>22h</th>
+                <th>15-18h</th>
             </tr>
             <tr>
                 <th>Sleep time saved <span class="addinfo"><sup>&#x24D8</sup><span>compared to the average sleep time of a 20-year-old (7.5h)</span></span></th>
-                <th>5h 30min (&#x2248 73%)</th>
+                <th>0</th>
             </tr>
             <tr>
                 <th>Difficulty level <span class="addinfo"><sup>&#x24D8</sup><span>
@@ -68,17 +60,16 @@ layout::header();
                 <br>- hard
                 <br>- extreme
                 </span></span></th>
-                <th class="extreme">extreme</th>
+                <th class="ez">easy</th>
             </tr>
 
         </table>
 
         <?php
-        layout::scheduleButton("Uberman");
+        layout::scheduleButton("Monophasic Sleep");
         ?>
 
     </div>
-
 </main>
 
 <?php

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 <head>
     <title>Change password - Polyphasic Sleep</title>
@@ -14,10 +16,10 @@
 $reset = false;
 
 
-include("../classes/datascripts.php");
+include("../classes/dataScripts.php");
 $datahandle = new datascripts();
 
-include("../classes/sitesession.php");
+include("../classes/siteSession.php");
 $session = new sitesession();
 $session->startsession();
 

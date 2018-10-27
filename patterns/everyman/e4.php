@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Siesta Sleep (long nap) - Polyphasic sleep</title>
+    <title>Everyman 4 - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
@@ -28,28 +30,31 @@ layout::header();
 
     ?>
     <div class="patterncontent col-9">
-        <h2>Siesta sleep with long nap</h2>
+        <h2>Everyman 4 sleep</h2>
         <p>
-            With a comparably long nap consisting of 90 minutes of sleep in the early afternoon,
-            nightly sleep time can be reduced significantly in this polyphasic pattern. The nap also provides a boost of
-            energy for the rest of the day and helps with physical regeneration as it covers all important sleep phases.
+            Everyman 4 sleep has only an extremely short nocturnal sleep period.
+            <b>This will not be sufficient for many people!</b>
+            However, it seems to work for some people. They have a total of four naps spread throughout the day in addition
+            to this nocturnal sleep, which makes the pattern very hard to maintain, if possible at all.
+            <br><b>It is not recommended to follow this sleep pattern.</b>
         </p>
+
         <table class="statstable">
             <tr>
                 <th>Total sleep time</th>
-                <th>6h 30min</th>
+                <th>3h</th>
             </tr>
             <tr>
                 <th>Total number of sleep periods</th>
-                <th>2</th>
+                <th>5</th>
             </tr>
             <tr>
                 <th>Total awake time</th>
-                <th>17h 30min</th>
+                <th>21h</th>
             </tr>
             <tr>
                 <th>Sleep time saved <span class="addinfo"><sup>&#x24D8</sup><span>compared to the average sleep time of a 20-year-old (7.5h)</span></span></th>
-                <th>1h (&#x2248 13%)</th>
+                <th>4h 30min (60%)</th>
             </tr>
             <tr>
                 <th>Difficulty level <span class="addinfo"><sup>&#x24D8</sup><span>
@@ -62,16 +67,16 @@ layout::header();
                 <br>- hard
                 <br>- extreme
                 </span></span></th>
-                <th class="med">medium</th>
+                <th class="extreme">extreme</th>
             </tr>
 
         </table>
 
         <?php
-        layout::scheduleButton("Siesta sleep (long nap)");
+        layout::scheduleButton("Everyman sleep (4 naps)");
         ?>
-
     </div>
+
 </main>
 
 <?php

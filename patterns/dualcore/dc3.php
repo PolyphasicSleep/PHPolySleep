@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Dual core 2 - Polyphasic sleep</title>
+    <title>Dual core 3 - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
@@ -28,28 +30,29 @@ layout::header();
 
     ?>
     <div class="patterncontent col-9">
-        <h2>Dual core 2 sleep</h2>
+        <h2>Dual core 3 sleep</h2>
         <p>
-            Dual core 2 sleep reduces total sleep time rather extensively. However, the combination of two nocturnal core sleep
-            periods with two naps throughout the day still provides enough high-quality sleep to be maintainable.
+            For Dual core sleep, the two nocturnal sleep periods are shortened to just 90 minutes each to cut down the total
+            sleep time by a considerable amount. However, it requires high levels of consistency to maintain, as there are
+            three naps spread throughout the day that need to be timed precisely to be effective.
         </p>
 
         <table class="statstable">
             <tr>
                 <th>Total sleep time</th>
-                <th>4h 40min</th>
+                <th>4h</th>
             </tr>
             <tr>
                 <th>Total number of sleep periods</th>
-                <th>4</th>
+                <th>5</th>
             </tr>
             <tr>
                 <th>Total awake time</th>
-                <th>19h 20min</th>
+                <th>20h</th>
             </tr>
             <tr>
                 <th>Sleep time saved <span class="addinfo"><sup>&#x24D8</sup><span>compared to the average sleep time of a 20-year-old (7.5h)</span></span></th>
-                <th>2h 50min (&#x2248 38%)</th>
+                <th>3h 30min (&#x2248 47%)</th>
             </tr>
             <tr>
                 <th>Difficulty level <span class="addinfo"><sup>&#x24D8</sup><span>
@@ -62,16 +65,15 @@ layout::header();
                 <br>- hard
                 <br>- extreme
                 </span></span></th>
-                <th class="adv">advanced</th>
+                <th class="hard">hard</th>
             </tr>
 
         </table>
 
         <?php
-        layout::scheduleButton("Dual core (2 naps)");
+        layout::scheduleButton("Dual core (3 naps)");
         ?>
     </div>
-
 </main>
 
 <?php

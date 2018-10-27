@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 <head>
     <title>Everyman 2 - Polyphasic sleep</title>

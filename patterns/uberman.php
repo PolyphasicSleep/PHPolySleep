@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Dual core 1 - Polyphasic sleep</title>
+    <title>Uberman - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
@@ -28,29 +30,34 @@ layout::header();
 
     ?>
     <div class="patterncontent col-9">
-        <h2>Dual core 1 sleep</h2>
+        <h2>Uberman sleep</h2>
         <p>
-            Dual core 1 sleep is considered the polyphasic sleep pattern providing the most health benefits, because it
-            matches the natural human sleep cycle very well. Additional to two nocturnal sleep periods, it features one
-            nap in the early afternoon.
+            Uberman sleep is probably the most extreme approach to polyphasic sleep. It consists of six naps that are
+            distributed perfectly evenly throughout the entire day, with each starting exactly 3 hours and 40 minutes after
+            the previous one has ended. Thereby, a ultradian rhythm is achieved (similarly to
+            <a href="triphasicSleep.html">Triphasic sleep</a>
+            ). Comparably to
+            <a href="everymanSleep/e4.html">Everyman 4 sleep</a>
+            , <b>this pattern will not work for most people, as it doesn't provide any deep sleep!</b>
+            Still, several people have tried and succeeded adapting to this pattern.
+            <br><b>It is not recommended to follow this sleep pattern.</b>
         </p>
-
         <table class="statstable">
             <tr>
                 <th>Total sleep time</th>
-                <th>5h 20min</th>
+                <th>2h</th>
             </tr>
             <tr>
                 <th>Total number of sleep periods</th>
-                <th>3</th>
+                <th>6</th>
             </tr>
             <tr>
                 <th>Total awake time</th>
-                <th>18h 40min</th>
+                <th>22h</th>
             </tr>
             <tr>
                 <th>Sleep time saved <span class="addinfo"><sup>&#x24D8</sup><span>compared to the average sleep time of a 20-year-old (7.5h)</span></span></th>
-                <th>2h 10min (&#x2248 29%)</th>
+                <th>5h 30min (&#x2248 73%)</th>
             </tr>
             <tr>
                 <th>Difficulty level <span class="addinfo"><sup>&#x24D8</sup><span>
@@ -63,14 +70,15 @@ layout::header();
                 <br>- hard
                 <br>- extreme
                 </span></span></th>
-                <th class="adv">advanced</th>
+                <th class="extreme">extreme</th>
             </tr>
 
         </table>
 
         <?php
-        layout::scheduleButton("Dual core (1 nap)");
+        layout::scheduleButton("Uberman");
         ?>
+
     </div>
 
 </main>

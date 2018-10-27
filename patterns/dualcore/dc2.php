@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Triphasic Sleep - Polyphasic sleep</title>
+    <title>Dual core 2 - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
@@ -28,30 +30,28 @@ layout::header();
 
     ?>
     <div class="patterncontent col-9">
-        <h2>Triphasic sleep</h2>
+        <h2>Dual core 2 sleep</h2>
         <p>
-            Triphasic sleep consists of three sleep periods with a duration of 90 minutes each. Those sleep periods are
-            distributed quite evenly throughout the day. If the sleep periods are scheduled with exactly 6.5 hours in between
-            each other, it is considered a ultradian rhythm (see also: <a href="ubermanSleep.html">Uberman sleep</a>),
-            which means the complete sleep/wake-cycle repeat after just 8 hours, significantly less than the normal 24 hours.
-            This can help make the sleep pattern more consistent.
+            Dual core 2 sleep reduces total sleep time rather extensively. However, the combination of two nocturnal core sleep
+            periods with two naps throughout the day still provides enough high-quality sleep to be maintainable.
         </p>
+
         <table class="statstable">
             <tr>
                 <th>Total sleep time</th>
-                <th>4h 30min</th>
+                <th>4h 40min</th>
             </tr>
             <tr>
                 <th>Total number of sleep periods</th>
-                <th>3</th>
+                <th>4</th>
             </tr>
             <tr>
                 <th>Total awake time</th>
-                <th>19h 30min</th>
+                <th>19h 20min</th>
             </tr>
             <tr>
                 <th>Sleep time saved <span class="addinfo"><sup>&#x24D8</sup><span>compared to the average sleep time of a 20-year-old (7.5h)</span></span></th>
-                <th>3h (40%)</th>
+                <th>2h 50min (&#x2248 38%)</th>
             </tr>
             <tr>
                 <th>Difficulty level <span class="addinfo"><sup>&#x24D8</sup><span>
@@ -64,15 +64,14 @@ layout::header();
                 <br>- hard
                 <br>- extreme
                 </span></span></th>
-                <th class="hard">hard</th>
+                <th class="adv">advanced</th>
             </tr>
 
         </table>
 
         <?php
-        layout::scheduleButton("Triphasic Sleep");
+        layout::scheduleButton("Dual core (2 naps)");
         ?>
-
     </div>
 
 </main>

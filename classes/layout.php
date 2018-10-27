@@ -15,12 +15,12 @@ class layout
              <ul class = "navbartop">
                 <li><a href="/index.php">Home</a></li>
               <!--  <li><a href="/Statistics.html">Statistics</a></li> -->
-                <li><a href="/phpolysleep/pages/patterns.php">Patterns</a></li>
+                <li><a href="/patterns.php">Patterns</a></li>
                <!-- <li><a href="/EBook.html">E-Book</a></li> -->
-                <li><a href="/pages/app.php">App</a></li>
-                <li><a href="/pages/contact.php">Contact</a></li>
-                <li class="usermenu"><a href="/pages/login.php">Login</a></li>
-                <li class="usermenu"><a href="/pages/user.php">NAMENAMENAME</a></li>
+                <li><a href="/app.php">App</a></li>
+                <li><a href="/contact.php">Contact</a></li>
+                <li class="usermenu"><a href="/login.php">Login</a></li>
+                <li class="usermenu"><a href="/user.php">NAMENAMENAME</a></li>
                 <li class="navhamburgermenu">
                     <a class="more" onclick="displaymorenav()"><span>&#x2630</span></a>
                 </li>
@@ -29,18 +29,18 @@ class layout
 
 
         if($isAuth){
-            $replaced = str_replace('<li class="usermenu"><a href="/phpolysleep/pages/login.php">Login</a></li>', "", $headerstring);
+            $replaced = str_replace('<li class="usermenu"><a href="/login.php">Login</a></li>', "", $headerstring);
             $replaced = str_replace("NAMENAMENAME", $_SESSION["userName"], $replaced);
         } else {
-            $replaced = str_replace("<li class=\"usermenu\"><a href=\"/phpolysleep/pages/user.php\">NAMENAMENAME</a></li>", "", $headerstring);
+            $replaced = str_replace("<li class=\"usermenu\"><a href=\"/user.php\">NAMENAMENAME</a></li>", "", $headerstring);
         }
 
         if(strpos($replaced, $activepage) !== false){
             $replaceable = 'href="'.$activepage;
             $replaced = str_replace($replaceable, 'class="active', $replaced);
-        } else if(strpos($activepage, "/phpolysleep/pages/patterns/") !== false){
-            $replaced = str_replace('href="/phpolysleep/pages/patterns.php"',
-                'href="/phpolysleep/pages/patterns.php" class="activeclickable"', $replaced);
+        } else if(strpos($activepage, "/patterns/") !== false){
+            $replaced = str_replace('href="/patterns.php"',
+                'href="/patterns.php" class="activeclickable"', $replaced);
         }
 
 
@@ -52,10 +52,10 @@ class layout
         $footerstring =
             '<footer>
                 <p>&copy Michael Rothammer 2018</p>
-                <p><a href="/pages/contact.php">Contact</a></p>
+                <p><a href="/contact.php">Contact</a></p>
                 <p>
-                    <a href="/pages/login.php#logIn" style="padding-right:2em">Log in</a>
-                    <a href="/pages/login.php" style="padding-left:2em">Sign up</a>
+                    <a href="/login.php#logIn" style="padding-right:2em">Log in</a>
+                    <a href="/login.php" style="padding-left:2em">Sign up</a>
                 </p>
             </footer>';
 
@@ -65,9 +65,9 @@ class layout
             $loggedin = false;
         }
         if($loggedin){
-            $replaced = str_replace('<a href="/pages/login.php#logIn" style="padding-right:2em">Log in</a>
-                    <a href="/pages/login.php" style="padding-left:2em">Sign up</a>',
-                '<a href="/pages/logout.php">Log out</a>', $footerstring);
+            $replaced = str_replace('<a href="/login.php#logIn" style="padding-right:2em">Log in</a>
+                    <a href="/login.php" style="padding-left:2em">Sign up</a>',
+                '<a href="/logout.php">Log out</a>', $footerstring);
         } else {
             $replaced = $footerstring;
         }
@@ -86,55 +86,55 @@ class layout
         <div class="col-3" style="padding: 0">
         <ul class="patternmenu">
             <li class="title">
-                <a class="menutitle" href="/pages/patterns.php"><h3>Sleep patterns</h3></a>
+                <a class="menutitle" href="/patterns.php"><h3>Sleep patterns</h3></a>
                 <a class="collbutton" onclick="displaymenu(this, false)">Expand</a>
             </li>
             <li>
-                <a href="/pages/patterns/monophasic.php">Monophasic</a>
+                <a href="/patterns/monophasic.php">Monophasic</a>
     
             </li>
             <li>
-                <a href="/pages/patterns/segmented.php">Segmented</a>
+                <a href="/patterns/segmented.php">Segmented</a>
             </li>
             <li>
-                <a href="/pages/patterns/siesta.php">
+                <a href="/patterns/siesta.php">
                     Siesta<span class="desktoparr">&#x1F892</span>
                 </a>
                 <a class="phoneplus" onclick="displaysubmenu(this)">&#x25BC</a>
                 <ul>
-                    <li><a href="/pages/patterns/siesta/longnap.php">Long nap</a></li>
-                    <li><a href="/pages/patterns/siesta/shortnap.php">Short nap</a></li>
+                    <li><a href="/patterns/siesta/longnap.php">Long nap</a></li>
+                    <li><a href="/patterns/siesta/shortnap.php">Short nap</a></li>
                 </ul>
             </li>
             <li>
-                <a href="/pages/patterns/triphasic.php">Triphasic</a>
+                <a href="/patterns/triphasic.php">Triphasic</a>
             </li>
             <li>
-                <a href="/pages/patterns/dualcore.php">
+                <a href="/patterns/dualcore.php">
                     Dual core
                     <span class="desktoparr">&#x1F892</span>
                 </a>
                 <a class="phoneplus" onclick="displaysubmenu(this)">&#x25BC</a>
                 <ul>
-                    <li><a href="/pages/patterns/dualcore/dc1.php">Dual core 1</a></li>
-                    <li><a href="/pages/patterns/dualcore/dc2.php">Dual core 2</a></li>
-                    <li><a href="/pages/patterns/dualcore/dc3.php">Dual core 3</a></li>
+                    <li><a href="/patterns/dualcore/dc1.php">Dual core 1</a></li>
+                    <li><a href="/patterns/dualcore/dc2.php">Dual core 2</a></li>
+                    <li><a href="/patterns/dualcore/dc3.php">Dual core 3</a></li>
                 </ul>
             </li>
             <li>
-                <a href="/pages/patterns/everyman.php">
+                <a href="/patterns/everyman.php">
                     Everyman
                     <span class="desktoparr">&#x1F892</span>
                 </a>
                 <a class="phoneplus" onclick="displaysubmenu(this)">&#x25BC</a>
                 <ul>
-                    <li><a href="/pages/patterns/everyman/e2.php">Everyman 2</a></li>
-                    <li><a href="/pages/patterns/everyman/e3.php">Everyman 3</a></li>
-                    <li><a href="/pages/patterns/everyman/e4.php">Everyman 4</a></li>
+                    <li><a href="/patterns/everyman/e2.php">Everyman 2</a></li>
+                    <li><a href="/patterns/everyman/e3.php">Everyman 3</a></li>
+                    <li><a href="/patterns/everyman/e4.php">Everyman 4</a></li>
                 </ul>
             </li>
             <li>
-                <a href="/pages/patterns/uberman.php">Uberman</a>
+                <a href="/patterns/uberman.php">Uberman</a>
             </li>
         </ul>
 
@@ -166,7 +166,7 @@ class layout
         }
 
         if(isset($currsched) && $currsched === $schedule){
-            echo "<div class='scheduleBtnCon'><a id='selectSched' href='/pages/user.php' onclick='editSchedule()'>Edit schedule</a></div>";
+            echo "<div class='scheduleBtnCon'><a id='selectSched' href='/user.php' onclick='editSchedule()'>Edit schedule</a></div>";
         } else {
             echo "<div class='scheduleBtnCon'><a id='selectSched' onclick='saveSchedule(\"".$schedule."\")'>Select this schedule</a></div>";
         }

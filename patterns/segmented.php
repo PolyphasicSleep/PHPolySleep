@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 <head>
     <title>Segmented Sleep - Polyphasic sleep</title>

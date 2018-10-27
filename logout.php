@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>User profile - Polyphasic sleep</title>
+    <title>Patterns - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
@@ -16,16 +18,12 @@ include("../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("../classes/dataScripts.php");
-$dataHandle = new dataScripts();
+$_SESSION["userAuth"] = false;
+unset($_SESSION["userName"]);
 
-if(isset($_SESSION["userAuth"]) && $_SESSION["userAuth"] == true){
-    $results = $dataHandle->deleteUser($_SESSION["userName"]);
-    $session->destroySession();
-} else {
-    $results = "<h3>You are not logged in.</h3> <a href='/phpolysleep/pages/login.php'>Log in here.</a>";
-}
+session_regenerate_id(false);
 
+$session->destroySession();
 
 include("../classes/layout.php");
 layout::header();
@@ -34,10 +32,12 @@ layout::header();
 
 <main>
     <div class="basiccontent">
-        <?php
-            echo $results;
-        ?>
+        <h3>You have been logged out successfully.</h3>
+        <hr>
+        <a href="/phpolysleep/index.php">Home</a><br>
+        <a href="/phpolysleep/pages/login.php">Log in again</a>
     </div>
+
 </main>
 
 <?php

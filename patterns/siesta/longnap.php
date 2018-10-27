@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Everyman 3 - Polyphasic sleep</title>
+    <title>Siesta Sleep (long nap) - Polyphasic sleep</title>
     <link rel="icon"
           type="image/png"
           href="/resources/images/favicon.png">
@@ -28,29 +30,28 @@ layout::header();
 
     ?>
     <div class="patterncontent col-9">
-        <h2>Everyman 3 sleep</h2>
+        <h2>Siesta sleep with long nap</h2>
         <p>
-            Everyman 3 sleep is the most popular type of everyman sleep. A short nocturnal sleep period of 3.5 hours combined
-            with three naps throughout the day provide sufficient quality sleep for most people, while requiring only very
-            little total sleep time.
+            With a comparably long nap consisting of 90 minutes of sleep in the early afternoon,
+            nightly sleep time can be reduced significantly in this polyphasic pattern. The nap also provides a boost of
+            energy for the rest of the day and helps with physical regeneration as it covers all important sleep phases.
         </p>
-
         <table class="statstable">
             <tr>
                 <th>Total sleep time</th>
-                <th>4h 30min</th>
+                <th>6h 30min</th>
             </tr>
             <tr>
                 <th>Total number of sleep periods</th>
-                <th>4</th>
+                <th>2</th>
             </tr>
             <tr>
                 <th>Total awake time</th>
-                <th>19h 30min</th>
+                <th>17h 30min</th>
             </tr>
             <tr>
                 <th>Sleep time saved <span class="addinfo"><sup>&#x24D8</sup><span>compared to the average sleep time of a 20-year-old (7.5h)</span></span></th>
-                <th>3h (40%)</th>
+                <th>1h (&#x2248 13%)</th>
             </tr>
             <tr>
                 <th>Difficulty level <span class="addinfo"><sup>&#x24D8</sup><span>
@@ -63,16 +64,16 @@ layout::header();
                 <br>- hard
                 <br>- extreme
                 </span></span></th>
-                <th class="hard">hard</th>
+                <th class="med">medium</th>
             </tr>
 
         </table>
 
         <?php
-        layout::scheduleButton("Everyman sleep (3 naps)");
+        layout::scheduleButton("Siesta sleep (long nap)");
         ?>
-    </div>
 
+    </div>
 </main>
 
 <?php
