@@ -14,11 +14,11 @@
 
 <?php
 
-include("/classes/siteSession.php");
+require_once("../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("/classes/layout.php");
+require_once("../classes/layout.php");
 layout::header();
 
 
@@ -35,9 +35,9 @@ layout::header();
             Uberman sleep is probably the most extreme approach to polyphasic sleep. It consists of six naps that are
             distributed perfectly evenly throughout the entire day, with each starting exactly 3 hours and 40 minutes after
             the previous one has ended. Thereby, a ultradian rhythm is achieved (similarly to
-            <a href="triphasicSleep.html">Triphasic sleep</a>
+            <a href="/patterns/triphasic.php">Triphasic sleep</a>
             ). Comparably to
-            <a href="everymanSleep/e4.html">Everyman 4 sleep</a>
+            <a href="/patterns/everyman/e4.php">Everyman 4 sleep</a>
             , <b>this pattern will not work for most people, as it doesn't provide any deep sleep!</b>
             Still, several people have tried and succeeded adapting to this pattern.
             <br><b>It is not recommended to follow this sleep pattern.</b>

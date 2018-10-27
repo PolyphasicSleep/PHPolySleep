@@ -14,11 +14,11 @@
 
 <?php
 
-include("/classes/siteSession.php");
+require_once("../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("/classes/layout.php");
+require_once("../classes/layout.php");
 layout::header();
 
 
@@ -34,7 +34,7 @@ layout::header();
         <p>
             Triphasic sleep consists of three sleep periods with a duration of 90 minutes each. Those sleep periods are
             distributed quite evenly throughout the day. If the sleep periods are scheduled with exactly 6.5 hours in between
-            each other, it is considered a ultradian rhythm (see also: <a href="ubermanSleep.html">Uberman sleep</a>),
+            each other, it is considered a ultradian rhythm (see also: <a href="/patterns/uberman.php">Uberman sleep</a>),
             which means the complete sleep/wake-cycle repeat after just 8 hours, significantly less than the normal 24 hours.
             This can help make the sleep pattern more consistent.
         </p>

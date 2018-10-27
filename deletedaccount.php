@@ -14,22 +14,22 @@
 
 <?php
 
-include("../classes/siteSession.php");
+include("classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("../classes/dataScripts.php");
+include("classes/dataScripts.php");
 $dataHandle = new dataScripts();
 
 if(isset($_SESSION["userAuth"]) && $_SESSION["userAuth"] == true){
     $results = $dataHandle->deleteUser($_SESSION["userName"]);
     $session->destroySession();
 } else {
-    $results = "<h3>You are not logged in.</h3> <a href='/phpolysleep/pages/login.php'>Log in here.</a>";
+    $results = "<h3>You are not logged in.</h3> <a href='/login.php'>Log in here.</a>";
 }
 
 
-include("../classes/layout.php");
+require_once("classes/layout.php");
 layout::header();
 
 ?>

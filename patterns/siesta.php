@@ -14,11 +14,11 @@
 
 <?php
 
-include("/classes/siteSession.php");
+require_once("../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("/classes/layout.php");
+require_once("../classes/layout.php");
 layout::header();
 
 
@@ -38,8 +38,8 @@ layout::header();
 
         <h4 class="subPatternTitle">Further information on the different types of Siesta sleep</h4>
         <div class="flexbox">
-            <div><a class="subPattern" href="siestaSleep/longNap.html">Long nap</a></div>
-            <div><a class="subPattern" href="siestaSleep/shortNap.html">Short nap</a></div>
+            <div><a class="subPattern" href="/patterns/siesta/longnap.php">Long nap</a></div>
+            <div><a class="subPattern" href="/patterns/siesta/shortnap.php">Short nap</a></div>
         </div>
     </div>
 

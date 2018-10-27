@@ -16,10 +16,10 @@
 $reset = false;
 
 
-include("../classes/dataScripts.php");
+require_once("classes/dataScripts.php");
 $datahandle = new datascripts();
 
-include("../classes/siteSession.php");
+require_once("classes/siteSession.php");
 $session = new sitesession();
 $session->startsession();
 
@@ -66,7 +66,7 @@ function checkinput($input){
     return htmlspecialchars(stripslashes(trim($input)));
 }
 
-include("../classes/layout.php");
+require_once("classes/layout.php");
 layout::header();
 
 ?>

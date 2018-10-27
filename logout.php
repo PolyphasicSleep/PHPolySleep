@@ -14,7 +14,7 @@
 
 <?php
 
-include("../classes/siteSession.php");
+require_once("classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
@@ -25,7 +25,7 @@ session_regenerate_id(false);
 
 $session->destroySession();
 
-include("../classes/layout.php");
+require_once("classes/layout.php");
 layout::header();
 
 ?>
@@ -34,8 +34,8 @@ layout::header();
     <div class="basiccontent">
         <h3>You have been logged out successfully.</h3>
         <hr>
-        <a href="/phpolysleep/index.php">Home</a><br>
-        <a href="/phpolysleep/pages/login.php">Log in again</a>
+        <a href="/index.php">Home</a><br>
+        <a href="/login.php">Log in again</a>
     </div>
 
 </main>

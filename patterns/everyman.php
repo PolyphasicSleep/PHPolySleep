@@ -14,11 +14,11 @@
 
 <?php
 
-include("/classes/siteSession.php");
+require_once("../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("/classes/layout.php");
+require_once("../classes/layout.php");
 layout::header();
 
 
@@ -36,9 +36,9 @@ layout::header();
         <h4 class="subPatternTitle">Further information on the different types of Everyman sleep</h4>
         <div class="flexbox">
 
-            <div><a class="subPattern" href="everymanSleep/e2.html">Everyman 2</a></div>
-            <div><a class="subPattern" href="everymanSleep/e3.html">Everyman 3</a></div>
-            <div><a class="subPattern" href="everymanSleep/e4.html">Everyman 4</a></div>
+            <div><a class="subPattern" href="/patterns/everyman/e2.php">Everyman 2</a></div>
+            <div><a class="subPattern" href="/patterns/everyman/e3.php">Everyman 3</a></div>
+            <div><a class="subPattern" href="/patterns/everyman/e4.php">Everyman 4</a></div>
 
         </div>
     </div>

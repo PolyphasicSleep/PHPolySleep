@@ -13,13 +13,13 @@
 <body>
 
 <?php
-
-include("/classes/siteSession.php");
+require_once("../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("/classes/layout.php");
+require_once("../classes/layout.php");
 layout::header();
+
 
 
 ?>
@@ -38,9 +38,9 @@ layout::header();
 
         <h4 class="subPatternTitle">Further information on the different types of Dual core sleep</h4>
         <div class="flexbox">
-            <div><a class="subPattern" href="dualcoreSleep/dc1.html">Dual Core 1</a></div>
-            <div><a class="subPattern" href="dualcoreSleep/dc2.html">Dual core 2</a></div>
-            <div><a class="subPattern" href="dualcoreSleep/dc3.html">Dual core 3</a></div>
+            <div><a class="subPattern" href="/patterns/dualcore/dc1.php">Dual Core 1</a></div>
+            <div><a class="subPattern" href="/patterns/dualcore/dc2.php">Dual core 2</a></div>
+            <div><a class="subPattern" href="/patterns/dualcore/dc3.php">Dual core 3</a></div>
         </div>
     </div>
 

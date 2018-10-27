@@ -13,15 +13,17 @@
 <body>
 
 <?php
-include("../classes/dataScripts.php");
+require_once("classes/dataScripts.php");
 $dataHandle = new dataScripts();
 
-include("../classes/timeScripts.php");
+require_once("classes/timeScripts.php");
 $timeHandle = new timeScripts();
 
-include("../classes/siteSession.php");
+require_once("classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
+
+require_once("classes/layout.php");
 
 if(isset($_POST["save"])){
 
@@ -44,7 +46,6 @@ if(isset($_GET["vfc"])){
     $dataHandle->verifyUser($_GET["vfc"]);
 }
 
-include("../classes/layout.php");
 layout::header();
 
 ?>
@@ -65,7 +66,7 @@ layout::header();
 
             if(!(isset($currsched) && $currsched !== null)){
                 echo "<p>You have not selected a schedule yet.</p>
-                  <div><a class='scheduleBtn' href='/phpolysleep/pages/patterns.php'>Choose a schedule!</a></div><br>";
+                  <div><a class='scheduleBtn' href='/patterns.php'>Choose a schedule!</a></div><br>";
             } else {
                 echo "<p>Your current schedule is ".$currsched.".</p>";
             }
@@ -115,11 +116,11 @@ layout::header();
             }
 
             echo "<hr>";
-            echo "<p><a href='changepassword.php'>Change password</a></p>";
-            echo "<p><a href='/phpolysleep/pages/logout.php'>Click here to log out.</a></p>";
-            echo "<p><a href='/phpolysleep/pages/deletedaccount.php'>Click here to delete this account.</a></p>";
+            echo "<p><a href='/changepassword.php'>Change password</a></p>";
+            echo "<p><a href='/logout.php'>Click here to log out.</a></p>";
+            echo "<p><a href='/deletedaccount.php'>Click here to delete this account.</a></p>";
         } else {
-            echo "<h3>You are not logged in.</h3> <a href='/phpolysleep/pages/login.php'>Log in here.</a>";
+            echo "<h3>You are not logged in.</h3> <a href='/login.php'>Log in here.</a>";
         }
         ?>
     </div>

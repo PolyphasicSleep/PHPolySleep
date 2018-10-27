@@ -15,10 +15,10 @@
 <?php
 
 
-include("../classes/dataScripts.php");
+require_once("classes/dataScripts.php");
 $datahandle = new datascripts();
 
-include("../classes/siteSession.php");
+require_once("classes/siteSession.php");
 $session = new sitesession();
 $session->startsession();
 
@@ -34,7 +34,7 @@ if(isset($_POST["login"])){
     $login = true;
     $results = $datahandle->authuser($passwordinput, $usernameinput);
     if(is_bool($results) && $results === true){
-        header("Location: /phpolysleep/pages/user.php");
+        header("Location: /user.php");
     }
 } else if(isset($_POST["new"])) {
     //create new button pressed
@@ -50,7 +50,7 @@ function checkinput($input){
     return htmlspecialchars(stripslashes(trim($input)));
 }
 
-include("../classes/layout.php");
+require_once("classes/layout.php");
 layout::header();
 
 ?>

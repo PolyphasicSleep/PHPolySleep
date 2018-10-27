@@ -14,13 +14,12 @@
 
 <?php
 
-include("/classes/siteSession.php");
+require_once("../../classes/siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("/classes/layout.php");
+require_once("../../classes/layout.php");
 layout::header();
-
 
 ?>
 
