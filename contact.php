@@ -14,11 +14,11 @@
 
 <?php
 
-include("../classes/siteSession.php");
+include("siteSession.php");
 $session = new siteSession();
 $session->startSession();
 
-include("../classes/layout.php");
+include("layout.php");
 layout::header();
 
 ?>
