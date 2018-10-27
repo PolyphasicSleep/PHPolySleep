@@ -56,14 +56,12 @@ class dataScripts
         require_once("../classes/timeScripts.php");
         $timesHandle = new timeScripts();
 
-        header("Location: debug.php?info="."Working: requiring class");
-
         $timesInfo = $timesHandle->getDefaultTimes($schedule);
         $oldInfo = $this->getOldScheduleTimes($_SESSION["userName"], $schedule);
 
         if($oldInfo !== null && count($oldInfo[0]) !== 0){
             $timesInfo = $oldInfo;
-            header("Location: debug.php?info="."Acquiring old info!?");
+            header("Location: /debug.php?info="."Acquiring old info!?");
         }
 
         $starttimes = $timesInfo[0];
@@ -75,13 +73,13 @@ class dataScripts
         for($i = 0; $i < $sleepscount; $i++) {
             $inserttimes = "INSERT INTO scheduletimes (scheduleID, starttime, endtime, sleeptype) VALUES (?,?,?,?)";
             if(!($readyquery = $conn->prepare($inserttimes))){
-                header("Location: debug.php?info=".$conn->error);
+                header("Location: /debug.php?info=".$conn->error);
             }
             if(!($readyquery->bind_param("iiis",$scheduleID, $starttimes[$i], $endtimes[$i], $sleeptypes[$i]))){
-                header("Location: debug.php?info=".$conn->error);
+                header("Location: /debug.php?info=".$conn->error);
             }
             if(!($readyquery->execute())){
-                header("Location: debug.php?info=".$conn->error);
+                header("Location: /debug.php?info=".$conn->error);
             }
         }
     }
