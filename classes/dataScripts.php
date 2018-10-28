@@ -405,6 +405,7 @@ class dataScripts
 
     //E-Mail from SMTP
     public function sendMail($from, $fromname, $to, $toname, $subject, $htmlmessage){
+        require_once("../Mail-1.4.1/Mail-1.4.1/Mail.php");
         $host = "smtp.gmail.com";
         $username = "noreply.polyphasicsleep@gmail.com";
         $password = "8jvnSeM7xX";
