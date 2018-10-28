@@ -30,9 +30,5 @@ if($_GET["CIId4ip5f3xG7vUSwpGJHhDFAoMWua"]==="0S4elSy3Z6cL7Wh1MKWRtfCAU30amb"){
     $subject = "TESTAUTOMAT";
     $message = "getrektm8";
     $result = $datahandle->sendMail($from, $namefrom, $to, $nameto, $subject, $message);
-    if(is_array($result)){
-        foreach ($result as $key=>$value){
-            echo "{$key} => {$value}<br> ";
-        }
-    }
+    echo $result;
 }
