@@ -23,6 +23,7 @@ $session = new sitesession();
 $session->startsession();
 
 if($_GET["CIId4ip5f3xG7vUSwpGJHhDFAoMWua"]==="0S4elSy3Z6cL7Wh1MKWRtfCAU30amb"){
+    echo "My man";
     $from = "noreply.polyphasicsleep@gmail.com";
     $to = "polyphasic.info@gmail.com";
     $namefrom = "Koenig";

@@ -409,7 +409,7 @@ class dataScripts
         $host = "smtp.gmail.com";
         $username = "noreply.polyphasicsleep@gmail.com";
         $password = "8jvnSeM7xX";
-        $port = "465";
+        $port = "587";
         $headers = array('From'=>$from, 'To'=>$to, 'Subject'=>$subject);
         $smtp = Mail::factory('smtp',
             array('host' => $host,
