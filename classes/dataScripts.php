@@ -218,6 +218,7 @@ class dataScripts
                 $readyquery->execute();
                 $results .= "Successfully created profile.";
 
+                /*
                 //Send verification Email
                 $mailsubject = "Verify your Polyphasic Sleep account";
                 $emailmessage = "
@@ -231,9 +232,9 @@ class dataScripts
                     <body>
                         <h1>Hello,".$usernameinput."</h1>
                         <h2>Please verify your account for Polyphasic Sleep!</h2>
-                        <a href='"/*TODO: insert url*/."?vfc=".$verification."'>Click here</a>
-                        <p>or copy this URL into your browser:</p>
-                        <p>"/*URL*/."?vfc=".$verification."</p>
+                        <a href='"."?vfc=".$verification."'>Click here</a>
+                        <p>or copy this TODO: insert url URL into your browser:</p>
+                        <p>"URL."?vfc=".$verification."</p>
                   
                     </body>
                 </html>";
@@ -243,7 +244,7 @@ class dataScripts
                 $mailheaders .= 'From: <polyphasic.info@gmail.com>' . "\r\n";
 
                 mail($emailinput, $mailsubject, $emailmessage, $mailheaders);
-
+                */
 
                 $_SESSION["userAuth"] = true;
                 $_SESSION["userName"] = $usernameinput;
