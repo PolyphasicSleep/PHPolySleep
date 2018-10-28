@@ -185,6 +185,7 @@ class dataScripts
     //User management
 
     public function createUser($passwordinput, $usernameinput, $emailinput){
+        require_once("Mail.php");
         $ismailvalid = true;
         $results = "";
 
@@ -391,7 +392,7 @@ class dataScripts
 
 
 
-    //This
+    //Generate Token
     private function randomString($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
     {
         $characters = [];
@@ -400,6 +401,75 @@ class dataScripts
             $characters []= $keyspace[random_int(0, $max)];
         }
         return implode('', $characters);
+    }
+
+    //E-Mail from SMTP
+    public function sendMail($from, $fromname, $to, $toname, $subject, $htmlmessage){
+        $smtpServer = "smtp.gmail.com";
+        $smtpPort = "465";
+        $timeout = "60";
+        $userName = "noreply.polyphasicsleep@gmail.com";
+        $password = "8jvnSeM7xX";
+        $localhost = "172.31.29.118";
+        $nL = "\r\n";
+        //connect to the host and port
+        $smtpConnect = fsockopen($smtpServer, $smtpPort, $errno, $errstr, $timeout);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        if(empty($smtpConnect)) {
+            $output = "Failed to connect: $smtpResponse";
+            echo $output;
+            return $output;
+        }
+        else {
+            $logArray['connection'] = "<p>Connected to: $smtpResponse";
+            echo "<p />connection accepted<br>".$smtpResponse."<p />Continuing<p />";
+        }
+
+
+        fputs($smtpConnect, "HELO $localhost". $nL);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['heloresponse2'] = "$smtpResponse";
+
+        fputs($smtpConnect,"AUTH LOGIN" . $nL);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['authrequest'] = "$smtpResponse";
+
+        fputs($smtpConnect, base64_encode($userName) . $nL);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['authusername'] = "$smtpResponse";
+
+        fputs($smtpConnect, base64_encode($password) . $nL);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['authpassword'] = "$smtpResponse";
+
+        fputs($smtpConnect, "MAIL FROM: <$from>" . $nL);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['mailfromresponse'] = "$smtpResponse";
+
+        fputs($smtpConnect, "RCPT TO: <$to>" . $nL);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['mailtoresponse'] = "$smtpResponse";
+
+        fputs($smtpConnect, "DATA" . $nL);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['data1response'] = "$smtpResponse";
+
+        $headers = "MIME-Version: 1.0" . $nL;
+        $headers .= "Content-type: text/html; charset=iso-8859-1" . $nL;
+        $headers .= "To: $toname <$to>" . $nL;
+        $headers .= "From: $fromname <$from>" . $nL;
+
+        fputs($smtpConnect, "To: $to\r\nFrom: $from\r\nSubject: $subject\r\n$headers\r\n\r\n$htmlmessage\r\n.\r\n");
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['data2response'] = "$smtpResponse";
+
+        fputs($smtpConnect,"QUIT" . $nL);
+        $smtpResponse = fgets($smtpConnect, 4096);
+        $logArray['quitresponse'] = "$smtpResponse";
+        $logArray['quitcode'] = substr($smtpResponse,0,3);
+        fclose($smtpConnect);
+
+        return($logArray);
     }
 
 
