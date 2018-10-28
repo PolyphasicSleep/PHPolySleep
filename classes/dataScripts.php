@@ -405,20 +405,19 @@ class dataScripts
 
     //E-Mail from SMTP
     public function sendMail($from, $fromname, $to, $toname, $subject, $htmlmessage){
-        $host = "ssl://smtp.gmail.com";
+        $host = "smtp.gmail.com";
         $username = "noreply.polyphasicsleep@gmail.com";
         $password = "8jvnSeM7xX";
         $port = "465";
         $headers = array('From'=>$from, 'To'=>$to, 'Subject'=>$subject);
         $smtp = Mail::factory('smtp',
             array('host' => $host,
-            'port' => $port,
             'auth' => true,
             'username' => $username,
             'password' => $password));
         $mail = $smtp->send($to, $headers, $htmlmessage);
         if (PEAR::isError($mail)) {
-            return "<p>" . $mail->getMessage() . "</p>";
+            return "<p>FAIL" . $mail->getMessage() . "</p>";
         } else {
             return "<p>Message successfully sent!</p>";
         }
