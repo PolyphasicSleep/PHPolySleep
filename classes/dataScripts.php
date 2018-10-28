@@ -406,13 +406,14 @@ class dataScripts
     //E-Mail from SMTP
     public function sendMail($from, $fromname, $to, $toname, $subject, $htmlmessage){
         require_once("../Mail-1.4.1/Mail-1.4.1/Mail.php");
-        $host = "smtp.gmail.com";
+        $host = "ssl//smtp.gmail.com";
         $username = "noreply.polyphasicsleep@gmail.com";
         $password = "8jvnSeM7xX";
-        $port = "587";
+        $port = "465";
         $headers = array('From'=>$from, 'To'=>$to, 'Subject'=>$subject);
         $smtp = Mail::factory('smtp',
             array('host' => $host,
+            'port' => $port,
             'auth' => true,
             'username' => $username,
             'password' => $password));
