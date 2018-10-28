@@ -403,28 +403,4 @@ class dataScripts
         return implode('', $characters);
     }
 
-    //E-Mail from SMTP
-    public function sendMail($from, $fromname, $to, $toname, $subject, $htmlmessage){
-        require_once("../Mail-1.4.1/Mail-1.4.1/Mail.php");
-        $host = "ssl//smtp.gmail.com";
-        $username = "noreply.polyphasicsleep@gmail.com";
-        $password = "nebksenqicigsjzz";
-        $port = "587";
-        $headers = array('From'=>$from, 'To'=>$to, 'Subject'=>$subject);
-        $smtp = Mail::factory('smtp',
-            array('host' => $host,
-            'port' => $port,
-            'auth' => true,
-            'username' => $username,
-            'password' => $password));
-        $mail = $smtp->send($to, $headers, $htmlmessage);
-        if (PEAR::isError($mail)) {
-            return "<p>FAIL" . $mail->getMessage() . "</p>";
-        } else {
-            return "<p>Message successfully sent!</p>";
-        }
-
-    }
-
-
 }
