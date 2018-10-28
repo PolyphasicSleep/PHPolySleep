@@ -408,8 +408,8 @@ class dataScripts
         require_once("../Mail-1.4.1/Mail-1.4.1/Mail.php");
         $host = "ssl//smtp.gmail.com";
         $username = "noreply.polyphasicsleep@gmail.com";
-        $password = "8jvnSeM7xX";
-        $port = "465";
+        $password = "nebksenqicigsjzz";
+        $port = "587";
         $headers = array('From'=>$from, 'To'=>$to, 'Subject'=>$subject);
         $smtp = Mail::factory('smtp',
             array('host' => $host,
