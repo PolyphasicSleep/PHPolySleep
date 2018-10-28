@@ -185,7 +185,6 @@ class dataScripts
     //User management
 
     public function createUser($passwordinput, $usernameinput, $emailinput){
-        require_once("Mail.php");
         $ismailvalid = true;
         $results = "";
 
